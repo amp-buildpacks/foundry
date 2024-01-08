@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+set -eo pipefail
+
+echo "---> Foundry Buildpack"
+
+# GET ARGS
+plan=${CNB_BP_PLAN_PATH}
+
+# CREATE LAYER
+foundry_layer=$CNB_LAYERS_DIR/foundry
+mkdir -p ${foundry_layer}
+
+# DOWNLOAD Foundry
+if [ ! -f ${CNB_LAYERS_DIR}/foundry.toml ]; then
+    echo "-----> Install Foundry"
+    curl -L https://foundry.paradigm.xyz > ${foundry_layer}/foundry.sh
+    chmod +x ${foundry_layer}/foundry.sh
+
+    export XDG_CONFIG_HOME=$CNB_LAYERS_DIR
+    export FOUNDRY_DIR=$foundry_layer
+
+    ${foundry_layer}/foundry.sh
+    echo "-----> Foundry Installed"
+
+    source $HOME/.bashrc
+    foundryup
+else
+    echo "-----> Reusing Foundry"
+fi
+
+# ADD FOUNDRY TO PATH
+export PATH=$PATH:$foundry_layer/bin
+whereis forge
+foundry_version=$(forge -V)
+echo "-----> forge version: ${foundry_version}"
+git init
+forge i
+
+# MAKE foundry AVAILABLE DURING LAUNCH and CACHE the LAYER
+cat > "${CNB_LAYERS_DIR}/foundry.toml" << EOL
+[types]
+launch = true
+build = true
+cache = true
+
+[metadata]
+foundry_version = "${foundry_version}"
+EOL
+
+# SET DEFAULT START COMMAND
+cat > "${CNB_LAYERS_DIR}/launch.toml" << EOL
+[[processes]]
+type = "web"
+command = ["forge", "test"]
+default = true
+EOL
