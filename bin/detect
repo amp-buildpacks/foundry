@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
-# if [[ ! -f foundry.toml ]]; then
-#     echo "MUST be exists foundry.toml"
-#     exit 100
-# fi
+if [[ ! -f foundry.toml ]]; then
+    echo "MUST be exists foundry.toml"
+    exit 100
+fi
 
-# if [[ $(ls src/*.sol | wc -l) -eq 0 ]]; then
-#     echo "MUST be exists src/*.sol contracts"
-#     exit 100
-# fi
+if [[ $(ls src/*.sol | wc -l) -eq 0 ]]; then
+    echo "MUST be exists src/*.sol contracts"
+    exit 100
+fi
 
 exit 0
