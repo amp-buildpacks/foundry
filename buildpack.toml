@@ -1,0 +1,21 @@
+api = "0.10"
+
+[buildpack]
+  description = "A Cloud Native Buildpack with an order definition suitable for Foundry applications"
+  homepage = "https://github.com/amp-buildpacks/foundry"
+  id = "amp-buildpacks/foundry"
+  keywords = ["foundry", "composite"]
+  name = "Foundry Build Pack"
+  version = "0.1.0"
+
+  [[buildpack.licenses]]
+    type = "Apache-2.0"
+    uri = "https://github.com/amp-buildpacks/foundry/blob/main/LICENSE"
+
+# Targets the buildpack will work with
+[[targets]]
+os = "linux"
+
+# Stacks (deprecated) the buildpack will work with
+[[stacks]]
+  id = "io.buildpacks.samples.stacks.jammy"
