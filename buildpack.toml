@@ -1,21 +1,54 @@
-api = "0.10"
+# Copyright (c) The Amphitheatre Authors. All rights reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      https://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+api = "0.8"
 
 [buildpack]
   description = "A Cloud Native Buildpack with an order definition suitable for Foundry applications"
   homepage = "https://github.com/amp-buildpacks/foundry"
   id = "amp-buildpacks/foundry"
   keywords = ["foundry", "composite"]
-  name = "Foundry Build Pack"
+  name = "Paketo Buildpack for Foundry"
+  sbom-formats = ["application/vnd.cyclonedx+json", "application/vnd.syft+json"]
   version = "0.1.0"
 
   [[buildpack.licenses]]
     type = "Apache-2.0"
     uri = "https://github.com/amp-buildpacks/foundry/blob/main/LICENSE"
 
-# Targets the buildpack will work with
-[[targets]]
-os = "linux"
+[metadata]
+  include-files = ["LICENSE", "README.md", "bin/build", "bin/detect", "bin/main", "buildpack.toml"]
+  pre-package = "scripts/build.sh"
 
-# Stacks (deprecated) the buildpack will work with
+  [[metadata.configurations]]
+    build = true
+    default = "false"
+    description = "enable the Foundry run process"
+    name = "BP_ENABLE_FOUNDRY_PROCESS"
+
+  [[metadata.dependencies]]
+    id = "foundry"
+    name = "Foundry"
+    purl = "pkg:generic/foundry@0.2.0"
+    # sha256 = "5d67b82c1319b26f19d496f8602edf0dd62da7cf41c219bc38cf3f6dd5f9c86b"
+    uri = "https://raw.githubusercontent.com/foundry-rs/foundry/master/foundryup/install"
+    stacks = ["*"]
+    version = "0.2.0"
+
+    [[metadata.dependencies.licenses]]
+      type = "Apache-2.0"
+      uri = "https://github.com/foundry-rs/foundry/blob/master/LICENSE-APACHE"
+
 [[stacks]]
-  id = "io.buildpacks.samples.stacks.jammy"
+  id = "*"
