@@ -2,6 +2,12 @@
 
 A Cloud Native Buildpack that provides the Foundry Tool Suite
 
+## Configuration
+
+| Environment Variable      | Description                                                                                                                                                                                                                                                                                       |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `$BP_ENABLE_FOUNDRY_PROCESS`    | Configure the Foundry launch process, default: `false`. Set to `true` means execute the `forge test` command.   |
+
 
 ## Usage
 
