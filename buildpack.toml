@@ -18,8 +18,8 @@ api = "0.8"
   description = "A Cloud Native Buildpack with an order definition suitable for Foundry applications"
   homepage = "https://github.com/amp-buildpacks/foundry"
   id = "amp-buildpacks/foundry"
-  keywords = ["foundry", "composite"]
-  name = "Paketo Buildpack for Foundry"
+  keywords = ["foundry", "forge", "Solidity"]
+  name = "AMP Buildpack for Foundry"
   sbom-formats = ["application/vnd.cyclonedx+json", "application/vnd.syft+json"]
   version = "0.1.0"
 
