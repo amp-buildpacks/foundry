@@ -21,7 +21,7 @@ api = "0.8"
   keywords = ["foundry", "forge", "Solidity"]
   name = "AMP Buildpack for Foundry"
   sbom-formats = ["application/vnd.cyclonedx+json", "application/vnd.syft+json"]
-  version = "0.1.0"
+  version = "{{.version}}"
 
   [[buildpack.licenses]]
     type = "Apache-2.0"
