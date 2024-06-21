@@ -42,7 +42,7 @@ api = "0.8"
     name = "Foundry"
     purl = "pkg:generic/foundry@0.2.0"
     sha256 = "6d493a985e0c8c666a9d6ded4c662d2db530d91ea2679dd941fd4b2820fab023"
-    uri = "https://raw.githubusercontent.com/foundry-rs/foundry/nightly-23700c9233314e06ba65be4522daf3aa89130dc0/foundryup/install"
+    uri = "https://raw.githubusercontent.com/foundry-rs/foundry/nightly-5ac78a9cd4b94dc53d1fe5e0f42372b28b5a7559/foundryup/install"
     stacks = ["*"]
     version = "0.2.0"
 
