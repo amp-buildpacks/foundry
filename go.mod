@@ -2,7 +2,7 @@ module github.com/amp-buildpacks/foundry
 
 go 1.24.0
 
-toolchain go1.24.7
+toolchain go1.24.9
 
 require (
 	github.com/buildpacks/libcnb v1.30.4
@@ -19,5 +19,5 @@ require (
 	github.com/mattn/go-isatty v0.0.20 // indirect
 	github.com/mitchellh/hashstructure/v2 v2.0.2 // indirect
 	github.com/onsi/gomega v1.38.2 // indirect
-	golang.org/x/sys v0.36.0 // indirect
+	golang.org/x/sys v0.37.0 // indirect
 )
