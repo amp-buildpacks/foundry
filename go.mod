@@ -13,9 +13,9 @@ require (
 	github.com/creack/pty v1.1.24 // indirect
 	github.com/heroku/color v0.0.6 // indirect
 	github.com/imdario/mergo v0.3.16 // indirect
-	github.com/mattn/go-colorable v0.1.14 // indirect
+	github.com/mattn/go-colorable v0.1.15 // indirect
 	github.com/mattn/go-isatty v0.0.22 // indirect
 	github.com/mitchellh/hashstructure/v2 v2.0.2 // indirect
-	github.com/onsi/gomega v1.41.0 // indirect
-	golang.org/x/sys v0.45.0 // indirect
+	github.com/onsi/gomega v1.42.0 // indirect
+	golang.org/x/sys v0.46.0 // indirect
 )
