@@ -1,6 +1,6 @@
 module github.com/amp-buildpacks/foundry
 
-go 1.26
+go 1.27
 
 require (
 	github.com/buildpacks/libcnb v1.30.4
@@ -16,6 +16,6 @@ require (
 	github.com/mattn/go-colorable v0.1.15 // indirect
 	github.com/mattn/go-isatty v0.0.24 // indirect
 	github.com/mitchellh/hashstructure/v2 v2.0.2 // indirect
-	github.com/onsi/gomega v1.42.1 // indirect
+	github.com/onsi/gomega v1.43.0 // indirect
 	golang.org/x/sys v0.47.0 // indirect
 )
